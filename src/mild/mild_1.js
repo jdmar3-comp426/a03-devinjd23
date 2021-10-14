@@ -23,7 +23,11 @@ export function sumToString(a, b) {
  *
  */
 export function getIncreasingArray(startNumber, endNumber) {
-
+    let incArray = [];
+    for (let i = startNumber; i <= endNumber; i++) {
+        incArray.push(i);
+    }
+    return incArray;
 }
 
 /**
