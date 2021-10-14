@@ -12,8 +12,6 @@ export function sumToString(a, b) {
     return a + b;
 }
 
-console.log(sumToString(5, 7));
-
 /**
  *
  * @param {number} startNumber
