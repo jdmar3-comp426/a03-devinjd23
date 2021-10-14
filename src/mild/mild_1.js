@@ -51,8 +51,6 @@ export function maxAndMin(numbers) {
     return {min, max}
 }
 
-console.log(maxAndMin([3, 45, 6, 12, 2345, 6, 2]));
-
 /**
  *
  * @param array - An array of any primitive type
