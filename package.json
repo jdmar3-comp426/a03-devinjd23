@@ -13,6 +13,7 @@
   },
   "author": "",
   "license": "GPL-3.0-or-later",
+  "type": "module",
   "dependencies": {
     "browser-sync": "^2.27.7",
     "esm": "^3.2.25"
