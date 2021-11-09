@@ -24,7 +24,7 @@ let obj = {
 // removeKey(obj, 'password');
 // console.log(obj);
 
-removeKeyNonDestructive(obj, 'password');
+console.log(removeKeyNonDestructive(obj, 'password'));
 
 // obj = removeKeys(obj, ['password', 'age']);
 // console.log(obj);
