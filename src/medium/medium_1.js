@@ -66,7 +66,6 @@ export function getStatistics(array) {
     });
     stats.variance = getSum(diffs) / diffs.length;
     stats.standard_deviation = Math.sqrt(stats.variance);
-    console.log(array);
     return stats;
 }
 
