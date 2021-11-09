@@ -1,11 +1,12 @@
 import {sumToString, getIncreasingArray, maxAndMin, countArray} from "./mild/mild_1.js";
 import {identifyVariable, identifyArray, removeKey, removeKeyNonDestructive, removeKeys} from "./mild/mild_2.js";
+import {getSum, getMedian, getStatistics} from "./medium/medium_1.js";
 
 // mild_1.js tests
 // console.log(sumToString(3, 4));
 // console.log(getIncreasingArray(3, 9));
 // console.log(maxAndMin([4, 23, 7, 9, 1]));
-console.log(countArray([3, 6, 3, 2, 2, 3, 'some', 'hello', 'some', [1, 2]]));
+// console.log(countArray([3, 6, 3, 2, 2, 3, 'some', 'hello', 'some', [1, 2]]));
 
 // mild_2.js tests
 // console.log(identifyVariable(2))
@@ -29,3 +30,8 @@ console.log(countArray([3, 6, 3, 2, 2, 3, 'some', 'hello', 'some', [1, 2]]));
 
 // obj = removeKeys(obj, ['password', 'age']);
 // console.log(obj);
+
+//medium_1.js tests
+// console.log(getSum([3, 1, 4, 2]));
+// console.log(getMedian([3,2,5,6,2,7,4,2,7,5]));
+console.log(getStatistics([3,2,4,5,5,5,2,6,7]));
