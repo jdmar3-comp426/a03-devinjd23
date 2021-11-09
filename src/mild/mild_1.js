@@ -42,10 +42,10 @@ export function maxAndMin(numbers) {
     let max = numbers[0];
     for (let i = 1; i < numbers.length; i++) {
         if (numbers[i] > max) {
-            max = numbers[i];
+            max = parseInt(numbers[i]);
         }
         if (numbers[i] < min) {
-            min = numbers[i];
+            min = parseInt(numbers[i]);
         }
     }
     return {max, min}
