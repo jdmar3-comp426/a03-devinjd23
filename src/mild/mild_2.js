@@ -74,8 +74,6 @@ export function removeKey(object, key) {
 export function removeKeyNonDestructive(object, key) {
    const newObj = Object.assign({}, object);
    delete newObj[key];
-   console.log(object);
-   console.log(newObj);
 }
 
 /**
