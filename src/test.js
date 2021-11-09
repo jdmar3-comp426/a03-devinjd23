@@ -5,6 +5,7 @@ import {identifyVariable, identifyArray, removeKey, removeKeyNonDestructive, rem
 // console.log(sumToString(3, 4));
 // console.log(getIncreasingArray(3, 9));
 // console.log(maxAndMin([4, 23, 7, 9, 1]));
+console.log(countArray([3, 6, 3, 2, 2, 3, 'some', 'hello', 'some', [1, 2]]));
 
 // mild_2.js tests
 // console.log(identifyVariable(2))
@@ -15,16 +16,16 @@ import {identifyVariable, identifyArray, removeKey, removeKeyNonDestructive, rem
 
 // console.log(identifyArray(['some', 3, [3, 4], false]));
 
-let obj = {
-    name: 'Mr. Boss',
-    title: 'boss',
-    age: 33,
-    password: 'pass123'
-};
+// let obj = {
+//     name: 'Mr. Boss',
+//     title: 'boss',
+//     age: 33,
+//     password: 'pass123'
+// };
 // removeKey(obj, 'password');
 // console.log(obj);
 
 // console.log(removeKeyNonDestructive(obj, 'password'));
 
-obj = removeKeys(obj, ['password', 'age']);
-console.log(obj);
+// obj = removeKeys(obj, ['password', 'age']);
+// console.log(obj);
