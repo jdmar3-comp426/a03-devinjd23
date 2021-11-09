@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "sumToString(a,b) from mild_1",
-      "setup": "npm install --silent esm",
+      "setup": "",
       "run": "node --experimental-modules --input-type=module --eval \"import {sumToString} from './src/mild/mild_1.js'; console.log(sumToString(13,7));\"",
       "input": "",
       "output": "13 + 7 = 20",
