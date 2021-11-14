@@ -1,6 +1,7 @@
 import {sumToString, getIncreasingArray, maxAndMin, countArray} from "./mild/mild_1.js";
 import {identifyVariable, identifyArray, removeKey, removeKeyNonDestructive, removeKeys} from "./mild/mild_2.js";
 import {getSum, getMedian, getStatistics} from "./medium/medium_1.js";
+import {allCarStats, moreStats} from "./medium/medium_2.js";
 
 // mild_1.js tests
 // console.log(sumToString(3, 4));
@@ -34,4 +35,11 @@ import {getSum, getMedian, getStatistics} from "./medium/medium_1.js";
 //medium_1.js tests
 // console.log(getSum([3, 1, 4, 2]));
 // console.log(getMedian([3,2,5,6,2,7,4,2,7,5]));
-console.log(getStatistics([3,2,4,5,5,5,2,6,7]));
+// console.log(getStatistics([3,2,4,5,5,5,2,6,7]));
+
+function medium_2Tests() {
+    console.log(allCarStats);
+    console.log(moreStats);
+}
+
+medium_2Tests();
