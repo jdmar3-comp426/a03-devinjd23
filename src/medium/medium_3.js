@@ -18,6 +18,8 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
+    console.log(minHorsepower);
+    console.log(minTorque);
     let output = [];
     for (let i = 0; i < car_data.length; i++) {
         if ((car_data[i]["horsepower"] >= minHorsepower) && (car_data[i]["torque"] >= minTorque)) {
@@ -40,6 +42,8 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
+    console.log(minCity);
+    console.log(minHighway);
     let output = [];
     for (let i = 0; i < car_data.length; i++) {
         if ((car_data[i]["city_mpg"] >= minCity) && (car_data[i]["highway_mpg"] >= minHighway)) {
@@ -60,7 +64,7 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+    console.log(searchTerm);
 }
 
 
@@ -73,5 +77,5 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    console.log(years);
 }
