@@ -47,7 +47,8 @@ import mpg_data from "./medium/data/mpg_data.js";
 // medium_2Tests();
 
 function medium_3Tests() {
-    console.log(searchHighPower(mpg_data, 600, 600));
+    console.log(searchHighPower(mpg_data, 630, 730));
+    console.log(searchMpg(mpg_data, 35, 40));
 }
 
 medium_3Tests();
