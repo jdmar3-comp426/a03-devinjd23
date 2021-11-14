@@ -107,21 +107,37 @@ for (let i = 0; i < hybridMakes.length; i++) {
         return obj.make == hybridMakes[i];
     })
     tempArray = Object.keys(groupBy(tempArray, "id"));
-    // tempArray = tempArray.reduce(function (previousValue, currentValue) {
-    //     if (previousValue.indexOf(currentValue) == -1) {
-    //         previousValue.push(currentValue)
-    //     }
-    //     return previousValue
-    // }, [])
     hybridObjs.push({
         make: hybridMakes[i],
         hybrids: tempArray
     })
 }
 
+let sortByYear = groupBy(mpg_data, "year");
+for (let i = 0; i < Object.keys(sortByYear).length; i++) {
+    let selectYear = sortByYear[Object.keys(sortByYear)[i]];
+    let sortByHybrid = groupBy(selectYear, "hybrid");
+    let yearHybrid = sortByHybrid[true];
+    let yearHybridCityAvg = getSum(yearHybrid.map(x => x.city_mpg)) / yearHybrid.length;
+    let yearHybridHighwayAvg = getSum(yearHybrid.map(x => x.highway_mpg)) / yearHybrid.length;
+    let yearNonHybrid = sortByHybrid[false];
+    let yearNonHybridCityAvg = getSum(yearNonHybrid.map(x => x.city_mpg)) / yearNonHybrid.length;
+    let yearNonHybridHighwayAvg = getSum(yearNonHybrid.map(x => x.highway_mpg)) / yearNonHybrid.length;
+    sortByYear[Object.keys(sortByYear)[i]] = {
+        hybrid: {
+            city: yearHybridCityAvg,
+            highway: yearHybridHighwayAvg
+        },
+        notHybrid: {
+            city: yearNonHybridCityAvg,
+            highway: yearNonHybridHighwayAvg
+        }
+    }
+}
+
 export const moreStats = {
     makerHybrids: hybridObjs,
-    avgMpgByYearAndHybrid: undefined
+    avgMpgByYearAndHybrid: sortByYear
 };
 
 
