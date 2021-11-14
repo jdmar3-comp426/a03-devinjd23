@@ -65,6 +65,13 @@ export function searchMpg(car_data, minCity, minHighway) {
  */
 export function searchName(car_data, searchTerm) {
     // searchTerm: Kia Soul AT
+    let output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        if (car_data[i]["id"].includes(searchTerm)) {
+            output.push(car_data[i]);
+        }
+    }
+    return output;
 }
 
 
@@ -78,4 +85,13 @@ export function searchName(car_data, searchTerm) {
  */
 export function searchByYear(car_data, years) {
     // years: [ 2016, 2018 ]
+    let output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        for (let j = 0; j < years.length; j++) {
+            if (car_data[i]["year"] == years[i]) {
+                output.push(car_data[i]);
+            }
+        }
+    }
+    return output;
 }
