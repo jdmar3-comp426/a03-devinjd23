@@ -4,6 +4,7 @@ import {getSum, getMedian, getStatistics} from "./medium/medium_1.js";
 import {allCarStats, moreStats} from "./medium/medium_2.js";
 import {searchHighPower, searchMpg, searchName, searchByYear} from "./medium/medium_3.js";
 import mpg_data from "./medium/data/mpg_data.js";
+import {everyEven} from "./spicy/spicy_9.js"
 
 // mild_1.js tests
 // console.log(sumToString(3, 4));
@@ -52,3 +53,6 @@ import mpg_data from "./medium/data/mpg_data.js";
 // }
 
 // medium_3Tests();
+
+console.log(everyEven([1, 5, 1, 0, 1], x => x === 1));
+console.log(everyEven([1, 1, 0, 1, 1], x => x === 1));
