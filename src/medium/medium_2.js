@@ -1,5 +1,5 @@
 import mpg_data from "./data/mpg_data.js";
-import {getStatistics} from "./medium_1.js";
+import {getStatistics, getSum} from "./medium_1.js";
 
 /*
 This section can be done by using the array prototype functions.
@@ -19,10 +19,22 @@ see under the methods section
  *
  * @param {allCarStats.ratioHybrids} ratio of cars that are hybrids
  */
+let cityMpg = mpg_data.map(x => x.city_mpg)
+let highwayMpg = mpg_data.map(x => x.highway_mpg)
+let yearStats = mpg_data.map(x => x.year)
+let numHybrids = 0;
+for (let i = 0; i < mpg_data.length; i++) {
+    if (mpg_data[i].hybrid) {
+        numHybrids++;
+    }
+}
 export const allCarStats = {
-    avgMpg: undefined,
-    allYearStats: undefined,
-    ratioHybrids: undefined,
+    avgMpg: {
+        city: getSum(cityMpg)/cityMpg.length,
+        highway: getSum(highwayMpg)/highwayMpg.length
+    },
+    allYearStats: getStatistics(yearStats),
+    ratioHybrids: numHybrids/mpg_data.length,
 };
 
 
@@ -83,7 +95,59 @@ export const allCarStats = {
  *
  * }
  */
+let onlyHybrids = groupBy(mpg_data, "hybrid");
+onlyHybrids = onlyHybrids[true];
+let hybridMakes = Object.keys(groupBy(onlyHybrids, "make"));
+let hybridObjs = [];
+for (let i = 0; i < hybridMakes.length; i++) {
+    let tempArray = onlyHybrids.filter(function (obj) {
+        if (obj.make == hybridMakes[i]) {
+            return obj.make
+        }
+        return obj.make == hybridMakes[i];
+    })
+    tempArray = Object.keys(groupBy(tempArray, "id"));
+    hybridObjs.push({
+        make: hybridMakes[i],
+        hybrids: tempArray
+    })
+}
+
+let sortByYear = groupBy(mpg_data, "year");
+for (let i = 0; i < Object.keys(sortByYear).length; i++) {
+    let selectYear = sortByYear[Object.keys(sortByYear)[i]];
+    let sortByHybrid = groupBy(selectYear, "hybrid");
+    let yearHybrid = sortByHybrid[true];
+    let yearHybridCityAvg = getSum(yearHybrid.map(x => x.city_mpg)) / yearHybrid.length;
+    let yearHybridHighwayAvg = getSum(yearHybrid.map(x => x.highway_mpg)) / yearHybrid.length;
+    let yearNonHybrid = sortByHybrid[false];
+    let yearNonHybridCityAvg = getSum(yearNonHybrid.map(x => x.city_mpg)) / yearNonHybrid.length;
+    let yearNonHybridHighwayAvg = getSum(yearNonHybrid.map(x => x.highway_mpg)) / yearNonHybrid.length;
+    sortByYear[Object.keys(sortByYear)[i]] = {
+        hybrid: {
+            city: yearHybridCityAvg,
+            highway: yearHybridHighwayAvg
+        },
+        notHybrid: {
+            city: yearNonHybridCityAvg,
+            highway: yearNonHybridHighwayAvg
+        }
+    }
+}
+
 export const moreStats = {
-    makerHybrids: undefined,
-    avgMpgByYearAndHybrid: undefined
+    makerHybrids: hybridObjs,
+    avgMpgByYearAndHybrid: sortByYear
 };
+
+
+function groupBy(objectArray, property) {
+    return objectArray.reduce(function (acc, obj) {
+      let key = obj[property]
+      if (!acc[key]) {
+        acc[key] = []
+      }
+      acc[key].push(obj)
+      return acc
+    }, {})
+  }

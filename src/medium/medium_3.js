@@ -18,7 +18,16 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    // Horsepower: 630
+    // Torque: 730
+    let output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        if ((car_data[i]["horsepower"] >= minHorsepower) && (car_data[i]["torque"] >= minTorque)) {
+            output.push(car_data[i]);
+        }
+    }
+    // output.sort((a, b) => (a.horsepower < b.horsepower) ? 1 : -1);
+    return output;
 }
 
 
@@ -33,7 +42,16 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-
+    // minCity: 35
+    // minHighway: 40
+    let output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        if ((car_data[i]["city_mpg"] >= minCity) && (car_data[i]["highway_mpg"] >= minHighway)) {
+            output.push(car_data[i]);
+        }
+    }
+    // output.sort((a, b) => (a.highway_mpg < b.highway_mpg) ? 1 : -1);
+    return output;
 }
 
 
@@ -46,7 +64,14 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+    // searchTerm: Kia Soul AT
+    let output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        if (car_data[i]["id"].includes(searchTerm)) {
+            output.push(car_data[i]);
+        }
+    }
+    return output;
 }
 
 
@@ -59,5 +84,14 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    // years: [ 2016, 2018 ]
+    let output = [];
+    for (let i = 0; i < car_data.length; i++) {
+        for (let j = 0; j < years.length; j++) {
+            if (car_data[i]["year"] == years[i]) {
+                output.push(car_data[i]);
+            }
+        }
+    }
+    return output;
 }

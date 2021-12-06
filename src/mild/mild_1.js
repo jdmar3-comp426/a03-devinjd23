@@ -9,9 +9,8 @@
  * see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
  */
 export function sumToString(a, b) {
-
+    return (a + " + " + b + " = " + (a + b));
 }
-
 
 /**
  *
@@ -24,7 +23,11 @@ export function sumToString(a, b) {
  *
  */
 export function getIncreasingArray(startNumber, endNumber) {
-
+    let incArray = [];
+    for (let i = startNumber; i <= endNumber; i++) {
+        incArray.push(i);
+    }
+    return incArray;
 }
 
 /**
@@ -35,7 +38,17 @@ export function getIncreasingArray(startNumber, endNumber) {
  * and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
  */
 export function maxAndMin(numbers) {
-
+    let min = numbers[0];
+    let max = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = parseInt(numbers[i]);
+        }
+        if (numbers[i] < min) {
+            min = parseInt(numbers[i]);
+        }
+    }
+    return {max, min}
 }
 
 /**
@@ -49,5 +62,19 @@ export function maxAndMin(numbers) {
  *
  */
 export function countArray(array) {
-
+    let obj = new Object();
+    for (let i = 0; i < array.length; i++) {
+        let key = array[i];
+        let exists = false;
+        for (let j = 0; j < Object.keys(obj).length; j++) {
+            if (Object.keys(obj)[j] == key) {
+                obj[key]++;
+                exists = true;
+            }
+        }
+        if (!exists) {
+            obj[key] = 1;
+        }
+    }
+    return obj;
 }
